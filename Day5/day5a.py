@@ -7,15 +7,18 @@ out = ""
 j = 0
 while len(out) < 8:
 	m = hashlib.md5()
-	m.update(INPUT + chr(j))
+	m.update(INPUT + str(j))
 
-	s = m.hexdigest()[5]
-	print(s)
+	s = m.hexdigest()
+	#print("{}{}: {}".format(INPUT, j, s))
 	i = 0
-	while i < 6:
+	while i < 5:
 		if s[i] != '0':
-			i += 1
 			break
 		i += 1
-		print(s[5])
+	if i == 5:
+		out += s[5]
+		print("{}: {}".format(len(out), s[5]))
 	j += 1
+
+print("Answer: " + out)
