@@ -1,5 +1,5 @@
 # Constants
-INPUT_FILE = "input.txt"
+INPUT_FILE = "test.txt"
 HEIGHT = 6
 WIDTH = 50
 
@@ -21,10 +21,12 @@ for line in f:
 		dimensions = tokens[1].split('x')
 		x = 0
 		y = 0
+		print ("Creating a {} rectangle".format(dimensions))
 		while x < int(dimensions[0]):
 			while y < int(dimensions[1]):
-					a[x][y] = '#'
-					y +=1
+				print("changing {}, {} to #".format(x, y))
+				a[y][x] = '#'
+				y += 1
 			x += 1
 		
 	elif tokens[0] == "rotate":
